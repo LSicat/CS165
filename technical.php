@@ -65,7 +65,7 @@
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
 									} 
-									$sql = "SELECT * FROM school natural join college_university";
+									$sql = "SELECT * FROM school natural join technical_vocational_school";
 									$result = $conn->query($sql);
 
 

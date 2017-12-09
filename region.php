@@ -65,7 +65,7 @@
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
 									} 
-									$sql = "SELECT * FROM school natural join college_university";
+									$sql = "SELECT * FROM region";
 									$result = $conn->query($sql);
 
 
@@ -77,7 +77,7 @@
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
-												echo '<td align="center">' .$row["school_id"] . '</td>'; 
+												echo '<td align="center">' .$row["region_num"] . '</td>'; 
 												echo '<td align="center">' .$row["name"] . '</td>';
 												echo '</tr>';
 										}
