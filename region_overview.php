@@ -30,10 +30,7 @@
 			<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-stacked nav-pills" style="color: #660000">
 						<li><a href="home.php" class="active">Schools</a></li>
-						<li><a href="elementary.php">Elementary</a></li>
-						<li><a href="technical.php">Technical</a></li>
 						<li><a href="addrecord.php">Regions</a></li>
-
 
 
 				</ul>
@@ -50,11 +47,12 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th style="text-align:center">Name</th>
-										<th style="text-align:center">Number of Students</th>
-										<th style="text-align:center">Number of Faculty</th>
-										<th style="text-align:center">Enrollment Rates</th>
-										<th style="text-align:center">Graduation Rates</th>
+										<th style="text-align:center">Region</th>
+										<th style="text-align:center">Number of Enrollees</th>
+										<th style="text-align:center">Number of Non Enrollees</th>
+										<th style="text-align:center">Cost Per Student</th>
+
+
 
 
 									</tr>
@@ -72,7 +70,7 @@
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
 									} 
-									$sql = "SELECT * FROM school natural join college_university";
+									$sql = "SELECT * FROM region";
 									$result = $conn->query($sql);
 
 
@@ -84,12 +82,13 @@
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
+
 												
-												echo '<td align="center">' .$row["name"] . '</td>';
-												echo '<td align="center">' .$row["num_of_students"] . '</td>';
-												echo '<td align="center">' .$row["num_of_faculty"] . '</td>';
-												echo '<td align="center">' .$row["enrollment_rates"] . '</td>';
-												echo '<td align="center">' .$row["graduation_rates"] . '</td>';
+
+												echo '<td align="center"><a href=region_overview?id='. $row["region_num"] . '>' .$row["name"] . '</a></td>';
+												echo '<td align="center">' .$row["num_enrollees"] . '</td>';
+												echo '<td align="center">' .$row["num_non_enrollees"] . '</td>';
+												echo '<td align="center">' .$row["cost_student"] . '</td>';
 												echo '</tr>';
 										}
 								 	} else { echo "0 results"; }
@@ -100,5 +99,6 @@
 			</div>
 		</div>
 </div>
+
 </body>
 </html>

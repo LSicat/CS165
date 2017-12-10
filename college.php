@@ -29,10 +29,10 @@
 		<div class="row" >
 			<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-stacked nav-pills" style="color: #660000">
-						<li><a href="home.php" class="active">Schools</a></li>
+						<li><a href="college.php" class="active">College</a></li>
 						<li><a href="elementary.php">Elementary</a></li>
 						<li><a href="technical.php">Technical</a></li>
-						<li><a href="addrecord.php">Regions</a></li>
+						<li><a href="region.php">Regions</a></li>
 
 
 
@@ -85,12 +85,16 @@
 
 												echo '<tr>';
 												
-												echo '<td align="center">' .$row["name"] . '</td>';
+												echo '<td align="center"><a href=#>' .$row["name"] . '</a></td>';
 												echo '<td align="center">' .$row["num_of_students"] . '</td>';
 												echo '<td align="center">' .$row["num_of_faculty"] . '</td>';
 												echo '<td align="center">' .$row["enrollment_rates"] . '</td>';
 												echo '<td align="center">' .$row["graduation_rates"] . '</td>';
+
+												
 												echo '</tr>';
+
+
 										}
 								 	} else { echo "0 results"; }
 

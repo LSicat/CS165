@@ -47,7 +47,12 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th style="text-align:center">ID</th>
+										<th style="text-align:center">Region</th>
+										<th style="text-align:center">Number of Enrollees</th>
+										<th style="text-align:center">Number of Non Enrollees</th>
+										<th style="text-align:center">Cost Per Student</th>
+
+
 
 
 									</tr>
@@ -77,8 +82,10 @@
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
-												echo '<td align="center">' .$row["region_num"] . '</td>'; 
-												echo '<td align="center">' .$row["name"] . '</td>';
+												echo '<td align="center"><a href=region_overview.php?id='. $row["region_num"] . '>' .$row["name"] . '</a></td>';
+												echo '<td align="center">' .$row["num_enrollees"] . '</td>';
+												echo '<td align="center">' .$row["num_non_enrollees"] . '</td>';
+												echo '<td align="center">' .$row["cost_student"] . '</td>';
 												echo '</tr>';
 										}
 								 	} else { echo "0 results"; }
@@ -89,5 +96,6 @@
 			</div>
 		</div>
 </div>
+
 </body>
 </html>

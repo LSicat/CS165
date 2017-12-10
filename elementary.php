@@ -47,7 +47,11 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th style="text-align:center">ID</th>
+										<th style="text-align:center">Name</th>
+										<th style="text-align:center">Number of Students</th>
+										<th style="text-align:center">Number of Faculty</th>
+										<th style="text-align:center">Enrollment Rates</th>
+										<th style="text-align:center">Graduation Rates</th>
 
 
 									</tr>
@@ -77,8 +81,12 @@
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
-												echo '<td align="center">' .$row["school_id"] . '</td>'; 
+												
 												echo '<td align="center">' .$row["name"] . '</td>';
+												echo '<td align="center">' .$row["num_of_students"] . '</td>';
+												echo '<td align="center">' .$row["num_of_faculty"] . '</td>';
+												echo '<td align="center">' .$row["enrollment_rates"] . '</td>';
+												echo '<td align="center">' .$row["graduation_rates"] . '</td>';
 												echo '</tr>';
 										}
 								 	} else { echo "0 results"; }

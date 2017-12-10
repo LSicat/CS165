@@ -112,8 +112,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if($bool){
 	$insert = mysql_query("INSERT INTO school (`school_id`,`name`,`num_of_faculty`,`num_of_students`) 
 										VALUES ('$school_id','$name','$num_of_faculty','$num_of_students');");
-	$insert = mysql_query("INSERT INTO school (`school_id`,`name`,`num_of_faculty`,`num_of_students`) 
-	  									VALUES ('$school_id','$name','$num_of_faculty','$num_of_students');");
+	$insert = mysql_query("INSERT INTO college_university (`school_id`,`enrollment_rates`,`graduation_rates`) 
+	  									VALUES ('$school_id','$enrollmentrates','$graduation_rates');");
 
 
   Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
