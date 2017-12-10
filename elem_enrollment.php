@@ -87,14 +87,12 @@
 								<thead>
 									<tr>
 										
-										<th style="text-align:center">ID</th>
-										<th style="text-align:center">Program</th>
-										<th style="text-align:center">Number of Faculty (BA/BS)</th>
-										<th style="text-align:center">Number of Faculty (MA/MS)</th>
-										<th style="text-align:center">Number of Faculty (PHD)</th>
-										<th style="text-align:center">Number of Students (BA/BS)</th>
-										<th style="text-align:center">Number of Students (MA/MS)</th>
-										<th style="text-align:center">Number of Students (PHD)</th>
+										
+										<th style="text-align:center">Number of Faculty</th>
+										<th style="text-align:center">Enrollment Rates</th>
+										<th style="text-align:center">Graduation Rates</th>
+										<th style="text-align:center">Number who go to College</th>
+										<th style="text-align:center">Year</th>
 
 
 									</tr>
@@ -105,7 +103,19 @@
 									$_GET["school_id"];
 									$school = $_GET["school_id"];
 
+								 	
+								 	echo '<div class="images" style=float:left><a href="elementary_enrollment.php?school_id='.$school.'"><img src="elementary_enrollment.php?school_id='.$school.'" alt="Line Plot" /></a></div>';
 
+								 	echo '<div class="images" style=float:left><a href="elementary_faculty.php?school_id='.$school.'"><img src="elementary_faculty.php?school_id='.$school.'" alt="Line Plot" /></a></div>';
+								 	
+								 	echo '<div class="images"><a href="elementary_ratio.php?school_id='.$school.'"><img src="elementary_ratio.php?school_id='.$school.'" alt="Line Plot" /></a></div>';
+								 	echo '<div style="clear"></div>';
+
+								 	echo '<br>';
+								 	echo '<br>';
+								 	echo '<br>';
+								 	echo '<br>';
+								 	echo '<br>';
 								
 									$servername = "localhost";  
 									$username = "root";
@@ -117,7 +127,7 @@
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
 									} 
-									$sql = "SELECT *, program.name as namae FROM offers natural join program, school where offers.school_id = school.school_id and school.school_id = $school;";
+									$sql = "SELECT * FROM school natural join elementary_trend where school_id = $school;";
 									$result = $conn->query($sql);
 
 
@@ -130,15 +140,13 @@
 
 												echo '<tr>';
 												
-												echo '<td align="center">' .$row["program_id"] . '</td>';
-												echo '<td align="center">' .$row["namae"] . '</td>';
-												echo '<td align="center">' .$row["num_faculty_ba_bs"] . '</td>';
-												echo '<td align="center">' .$row["num_faculty_ma_ms"] . '</td>';
-												echo '<td align="center">' .$row["num_faculty_phd"] . '</td>';
-												echo '<td align="center">' .$row["num_students_ba_bs"] . '</td>';
-												echo '<td align="center">' .$row["num_students_ms_ma"] . '</td>';
-												echo '<td align="center">' .$row["num_students_phd"] . '</td>';
 												
+												
+												echo '<td align="center">' .$row["faculty"] . '</td>';
+												echo '<td align="center">' .$row["enrollment_rates"] . '</td>';
+												echo '<td align="center">' .$row["graduation_rates"] . '</td>';
+												echo '<td align="center">' .$row["num_go_college"] . '</td>';
+												echo '<td align="center">' .$row["year"] . '</td>';
 
 												
 												echo '</tr>';

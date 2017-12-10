@@ -70,7 +70,7 @@
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
 									} 
-									$sql = "SELECT * FROM region";
+									$sql = "SELECT * FROM region natural join located_in, school where located_in.school_id = school.school_id where region_num=1";
 									$result = $conn->query($sql);
 
 
@@ -86,9 +86,7 @@
 												
 
 												echo '<td align="center"><a href=region_overview?id='. $row["region_num"] . '>' .$row["name"] . '</a></td>';
-												echo '<td align="center">' .$row["num_enrollees"] . '</td>';
-												echo '<td align="center">' .$row["num_non_enrollees"] . '</td>';
-												echo '<td align="center">' .$row["cost_student"] . '</td>';
+
 												echo '</tr>';
 										}
 								 	} else { echo "0 results"; }
