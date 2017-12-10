@@ -8,16 +8,15 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 		</div>
 		<a href="#" class="navbar-left"><img src="pics/logo.png" width="40px" hspace="20px" vspace="5px"></a>
-		<a class="navbar-brand" href="#">UP Office of Admissions</a>
+		<a class="navbar-brand" href="#">EducNation</a>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="home.php">Home</a></li>
-			<li><a href="profile.php">Profile</a></li>
+			<li class="active"><a href="college.php">Home</a></li>
+			
 			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>

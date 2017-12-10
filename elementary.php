@@ -29,22 +29,20 @@
 		<div class="row" >
 			<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-stacked nav-pills" style="color: #660000">
-						<li><a href="college.php" class="active">College</a></li>
+						<li><a href="college.php" class="active">College/University</a></li>
 						<li><a href="add_college.php" >Add College</a></li>
 						<li><a href="update_college.php" >Update College</a></li>
 						<li><a href="delete_college.php" >Delete College</a></li>
-						<li><a href="add_course.php" >Add Coursea</a></li>
+						<li><a href="add_record.php" >Add Record</a></li>
+						<li><a href="update_record.php" >Update Record</a></li>
+						<li><a href="delete_record.php" >Delete Record</a></li>
+						<li><a href="add_course.php" >Add Course</a></li>
 						<li><a href="update_course.php" >Update Course</a></li>
 						<li><a href="delete_course.php" >Delete Course</a></li>
-						<li><a href="elementary.php">Elementary</a></li>
-						<li><a href="add_college.php" >Add College</a></li>
-						<li><a href="update_college.php" >Update College</a></li>
-						<li><a href="delete_college.php" >Delete College</a></li>
-						<li><a href="region.php">Regions</a></li>
-						<li><a href="add_college.php" >Add College</a></li>
-						<li><a href="update_college.php" >Update College</a></li>
-						<li><a href="delete_college.php" >Delete College</a></li>
-						<li><a href="add.php">Add</a></li>
+						<li><a href="elementary.php">Elementary/Secondary School</a></li>
+						<li><a href="add_college.php" >Add Elementary/Secondary School</a></li>
+						<li><a href="update_college.php" >Update Elementary/Secondary School</a></li>
+						<li><a href="delete_college.php" >Delete Elementary/Secondary School</a></li>
 
 
 

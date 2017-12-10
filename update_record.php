@@ -8,7 +8,6 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -22,6 +21,7 @@
 		</ul>
 	</div>
 </nav>
+
 <!-- baba -->
 	<div class="container-fluid">
 		<div class="row" >
@@ -101,7 +101,7 @@ $year = mysql_real_escape_string($_POST['year']);
 $school = rand ( 100000,  999999);
 
 if($bool){
-	
+	$insert = mysql_query("DELETE from college_trend where college_trend_id = $college_trend_id;");
 	$insert = mysql_query("INSERT INTO college_trend (`college_trend_id`, `school_id`,`faculty`,`enrollment_rates`,`graduation_rates`,`year`) 
 										VALUES ('$college_trend_id','$school_id','$faculty','$enrollment_rates','$graduation_rates','$year');");
 

@@ -14,10 +14,10 @@
 		<div class="navbar-header">
 		</div>
 		<a href="#" class="navbar-left"><img src="pics/logo.png" width="40px" hspace="20px" vspace="5px"></a>
-		<a class="navbar-brand" href="#">UP Office of Admissions</a>
+		<a class="navbar-brand" href="#">EducNation</a>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="home.php">Home</a></li>
-			<li><a href="profile.php">Profile</a></li>
+			<li class="active"><a href="college.php">Home</a></li>
+			
 			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>
@@ -31,12 +31,6 @@
 		<div class="row" >
 			<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-stacked nav-pills" style="color: #660000">
-						<li><a href="college.php" class="active">College</a></li>
-						<li><a href="elementary.php">Elementary</a></li>
-						<li><a href="technical.php">Technical</a></li>
-						<li><a href="region.php">Regions</a></li>
-						<li><a href="add.php">Add</a></li>
-
 
 
 				</ul>
