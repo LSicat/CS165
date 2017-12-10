@@ -14,10 +14,10 @@
 		<div class="navbar-header">
 		</div>
 		<a href="#" class="navbar-left"><img src="pics/logo.png" width="40px" hspace="20px" vspace="5px"></a>
-		<a class="navbar-brand" href="#">UP Office of Admissions</a>
+		<a class="navbar-brand" href="#">EducNation</a>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="home.php">Home</a></li>
-			<li><a href="profile.php">Profile</a></li>
+			<li class="active"><a href="college.php">Home</a></li>
+
 			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>
@@ -33,14 +33,15 @@
 			</div>
 			<div class="col-sm-5">
 					<!-- CONTENT -->
-				<h2>Add College</h2>
+				<h2>Update School</h2>
 
 
 				<form METHOD="POST">
-				
 
-
-
+				<div class="form-group">
+					<label for="school_id">School ID</label>
+					<input type="text" class="form-control" id="school_id" name="school_id">
+				</div>
 				<div class="form-group">
 					<label for="name">School Name</label>
 					<input type="text" class="form-control" id="name" name="name">
@@ -67,6 +68,7 @@
 				</div>
 
 
+
 				<input type = "submit" class="btn btn-primary" name = "submit" value = "Submit">
 				</form>
 
@@ -83,37 +85,35 @@
 
 $bool = NULL;
 
+$conn = new mysqli("localhost", "root", "", "cs165mp5");
+
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  
- 
-  $name = mysql_real_escape_string($_POST['name']);
-  $location = mysql_real_escape_string($_POST['location']);
-  $num_of_faculty = mysql_real_escape_string($_POST['num_of_faculty']);
-  $num_of_students = mysql_real_escape_string($_POST['num_of_students']);
-  $enrollment_rates = mysql_real_escape_string($_POST['enrollment_rates']);
-  $graduation_rates = mysql_real_escape_string($_POST['graduation_rates']);
-  
+
+  $school_id = $conn->real_escape_string($_POST['school_id']);
+  $name = $conn->real_escape_string($_POST['name']);
+  $location = $conn->real_escape_string($_POST['location']);
+  $num_of_faculty = $conn->real_escape_string($_POST['num_of_faculty']);
+  $num_of_students = $conn->real_escape_string($_POST['num_of_students']);
+  $enrollment_rates = $conn->real_escape_string($_POST['enrollment_rates']);
+  $graduation_rates = $conn->real_escape_string($_POST['graduation_rates']);
+
 
 
   $bool = true;
 
   if ($location <= 0) {$bool = false;}
 
-  mysql_connect("localhost", "root", "") or die(mysql_error()); //connect to server
-  mysql_select_db("cs165mp5") or die("Cannot connect to database"); //connect to database
-  $query = mysql_query("Select * from school");
-
 }
-$school = rand ( 100000,  999999);
 
 if($bool){
-	$insert = mysql_query("INSERT INTO school (`school_id`,`name`,`num_of_faculty`,`num_of_students`) 
-										VALUES ('$school','$name','$num_of_faculty','$num_of_students');");
-	$insert = mysql_query("INSERT INTO college_university (`school_id`,`enrollment_rates`,`graduation_rates`) 
-	  									VALUES ('$school','$enrollment_rates','$graduation_rates');");
-	$insert = mysql_query("INSERT INTO located_in (`located_id`,`school_id`,`region_num`)
-	  									VALUES ('$school','$school','$location');");
-  Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
+
+	$insert = mysqli_query($conn, "UPDATE `elementary_school` SET `enrollment_rates` = $enrollment_rates, `graduation_rates` = $graduation_rates  WHERE school_id=$school_id);");
+	$insert = mysqli_query($conn, "UPDATE `located_in` SET `region_num`=$location WHERE school_id=$school_id);");
+	$insert = mysqli_query($conn, "UPDATE school SET name='$name',num_of_faculty=$num_of_faculty,num_of_students=$num_of_students WHERE school_id=$school_id;");
+
+  Print '<script>alert("Successfully Updated School!");</script>'; // Prompts the user
+
 
   if (!$insert) echo mysql_error();
 }
