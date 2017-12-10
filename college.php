@@ -33,6 +33,7 @@
 						<li><a href="elementary.php">Elementary</a></li>
 						<li><a href="technical.php">Technical</a></li>
 						<li><a href="region.php">Regions</a></li>
+						<li><a href="add.php">Add</a></li>
 
 
 
@@ -85,13 +86,13 @@
 
 												echo '<tr>';
 												
-												echo '<td align="center"><a href=#>' .$row["name"] . '</a></td>';
+												echo '<td align="center"><a href=comp_enrollment.php?school_id=' . $row["school_id"] . '>' .$row["name"] . '</a></td>';
 												echo '<td align="center">' .$row["num_of_students"] . '</td>';
 												echo '<td align="center">' .$row["num_of_faculty"] . '</td>';
 												echo '<td align="center">' .$row["enrollment_rates"] . '</td>';
 												echo '<td align="center">' .$row["graduation_rates"] . '</td>';
-
-												
+												echo '<td align="center"><a href=courses.php?school_id='. $row["school_id"].'>View Courses</a></td>';
+											
 												echo '</tr>';
 
 

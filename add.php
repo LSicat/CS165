@@ -29,13 +29,6 @@
 		<div class="row" >
 			<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-stacked nav-pills" style="color: #660000">
-						<li><a href="home.php">View List of Personnel</a></li>
-						<li><a href="addrecord.php" class="active">Add Record</a></li>
-						<li><a href="invitation.php">Invitation</a></li>
-						<li><a href="Response">Response</a></li>
-						<li><a href="attendanceregional.php">Assignment (Regional)</a></li>
-						<li><a href="attendancediliman.php">Assignment (Diliman)</a></li>
-						<li><a href="Attendance">UPCAT Attendance</a></li>
 
 				</ul>
 			</div>

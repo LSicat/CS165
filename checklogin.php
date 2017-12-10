@@ -7,7 +7,7 @@
 
   mysql_connect("localhost", "root", "") or die(mysql_error());
   mysql_select_db("cs165mp5") or die("Cannot connect to database");
-  $query = mysql_query("SELECT * FROM user WHERE username = '$username'"); //query users table
+  $query = mysql_query("SELECT * FROM users WHERE username = '$username'"); //query users table
   $exists = mysql_num_rows($query); //check if username exists
   $table_users = "";
   $table_password = "";
