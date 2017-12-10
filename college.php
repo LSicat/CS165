@@ -51,6 +51,7 @@
 							<table class="table">
 								<thead>
 									<tr>
+										<th style="text-align:center">ID</th>
 										<th style="text-align:center">Name</th>
 										<th style="text-align:center">Number of Students</th>
 										<th style="text-align:center">Number of Faculty</th>
@@ -73,6 +74,8 @@
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
 									} 
+
+									
 									$sql = "SELECT * FROM school natural join college_university";
 									$result = $conn->query($sql);
 
@@ -85,7 +88,7 @@
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
-												
+												echo '<td align="center">' .$row["school_id"] . '</td>';
 												echo '<td align="center"><a href=comp_enrollment.php?school_id=' . $row["school_id"] . '>' .$row["name"] . '</a></td>';
 												echo '<td align="center">' .$row["num_of_students"] . '</td>';
 												echo '<td align="center">' .$row["num_of_faculty"] . '</td>';

@@ -18,6 +18,7 @@
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="home.php">Home</a></li>
 			<li><a href="profile.php">Profile</a></li>
+			<li><a href="Rates">Records</a></li>
 			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>
@@ -33,14 +34,15 @@
 			</div>
 			<div class="col-sm-5">
 					<!-- CONTENT -->
-				<h2>Add College</h2>
+				<h2>Update School</h2>
 
 
 				<form METHOD="POST">
 				
-
-
-
+				<div class="form-group">
+					<label for="school_id">School ID</label>
+					<input type="text" class="form-control" id="school_id" name="school_id">
+				</div>
 				<div class="form-group">
 					<label for="name">School Name</label>
 					<input type="text" class="form-control" id="name" name="name">
@@ -67,6 +69,7 @@
 				</div>
 
 
+
 				<input type = "submit" class="btn btn-primary" name = "submit" value = "Submit">
 				</form>
 
@@ -85,7 +88,7 @@ $bool = NULL;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   
- 
+  $school_id = mysql_real_escape_string($_POST['school_id']);
   $name = mysql_real_escape_string($_POST['name']);
   $location = mysql_real_escape_string($_POST['location']);
   $num_of_faculty = mysql_real_escape_string($_POST['num_of_faculty']);
@@ -104,16 +107,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $query = mysql_query("Select * from school");
 
 }
-$school = rand ( 100000,  999999);
 
 if($bool){
-	$insert = mysql_query("INSERT INTO school (`school_id`,`name`,`num_of_faculty`,`num_of_students`) 
-										VALUES ('$school','$name','$num_of_faculty','$num_of_students');");
-	$insert = mysql_query("INSERT INTO college_university (`school_id`,`enrollment_rates`,`graduation_rates`) 
-	  									VALUES ('$school','$enrollment_rates','$graduation_rates');");
-	$insert = mysql_query("INSERT INTO located_in (`located_id`,`school_id`,`region_num`)
-	  									VALUES ('$school','$school','$location');");
-  Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
+	
+	$insert = mysql_query("UPDATE `college_university` SET `enrollment_rates` = $enrollment_rates, `graduation_rates` = $graduation_rates  WHERE school_id=$school_id);");
+	$insert = mysql_query("UPDATE `located_in` SET `region_num`=$location WHERE school_id=$school_id);");
+	$insert = mysql_query("UPDATE school SET name='$name',num_of_faculty=$num_of_faculty,num_of_students=$num_of_students WHERE school_id=$school_id;");
+
+  Print '<script>alert("Successfully Updated!");</script>'; // Prompts the user
+  
 
   if (!$insert) echo mysql_error();
 }
