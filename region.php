@@ -14,7 +14,7 @@
 		<div class="navbar-header">
 		</div>
 		<a href="#" class="navbar-left"><img src="pics/logo.png" width="40px" hspace="20px" vspace="5px"></a>
-		<a class="navbar-brand" href="#">UP Office of Admissions</a>
+		<a class="navbar-brand" href="#">EducNation</a>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="home.php">Home</a></li>
 			<li><a href="profile.php">Profile</a></li>
@@ -29,8 +29,8 @@
 		<div class="row" >
 			<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-stacked nav-pills" style="color: #660000">
-						<li><a href="home.php" class="active">Schools</a></li>
-						<li><a href="addrecord.php">Regions</a></li>
+						<li><a href="home.php">Schools</a></li>
+						<li><a href="region.php" class="active">Regions</a></li>
 
 
 				</ul>
@@ -61,25 +61,25 @@
 
 								<!--Table. Calls mysql to show the data-->
 								<?php
-									$servername = "localhost";  
+									$servername = "localhost";
 									$username = "root";
 									$password = "";
 									$dbname = "cs165mp5";
 
 									$conn = new mysqli($servername, $username, $password, $dbname);
-								
+
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
-									} 
+									}
 									$sql = "SELECT * FROM region";
 									$result = $conn->query($sql);
 
 
 
-									if ($result->num_rows > 0) {	
+									if ($result->num_rows > 0) {
 
 
-										
+
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';

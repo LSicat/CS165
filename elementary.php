@@ -29,7 +29,7 @@
 		<div class="row" >
 			<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-stacked nav-pills" style="color: #660000">
-						<li><a href="college.php" class="active">College/University</a></li>
+						<li><a href="college.php">College/University</a></li>
 						<li><a href="add_college.php" >Add College</a></li>
 						<li><a href="update_college.php" >Update College</a></li>
 						<li><a href="delete_college.php" >Delete College</a></li>
@@ -39,10 +39,10 @@
 						<li><a href="add_course.php" >Add Course</a></li>
 						<li><a href="update_course.php" >Update Course</a></li>
 						<li><a href="delete_course.php" >Delete Course</a></li>
-						<li><a href="elementary.php">Elementary/Secondary School</a></li>
-						<li><a href="add_college.php" >Add Elementary/Secondary School</a></li>
-						<li><a href="update_college.php" >Update Elementary/Secondary School</a></li>
-						<li><a href="delete_college.php" >Delete Elementary/Secondary School</a></li>
+						<li><a href="elementary.php" class="active">Elementary/Secondary School</a></li>
+						<li><a href="add_elementary.php" >Add Elementary/Secondary School</a></li>
+						<li><a href="update_elementary.php" >Update Elementary/Secondary School</a></li>
+						<li><a href="delete_elementary.php" >Delete Elementary/Secondary School</a></li>
 
 
 
@@ -73,27 +73,27 @@
 
 								<!--Table. Calls mysql to show the data-->
 								<?php
-									$servername = "localhost";  
+									$servername = "localhost";
 									$username = "root";
 									$password = "";
 									$dbname = "cs165mp5";
 
 									$conn = new mysqli($servername, $username, $password, $dbname);
-								
+
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
-									} 
+									}
 
-									
+
 									$sql = "SELECT * FROM school natural join elementary_school";
 									$result = $conn->query($sql);
 
 
 
-									if ($result->num_rows > 0) {	
+									if ($result->num_rows > 0) {
 
 
-										
+
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
@@ -103,8 +103,8 @@
 												echo '<td align="center">' .$row["num_of_faculty"] . '</td>';
 												echo '<td align="center">' .$row["enrollment_rates"] . '</td>';
 												echo '<td align="center">' .$row["graduation_rates"] . '</td>';
-												
-											
+
+
 												echo '</tr>';
 
 

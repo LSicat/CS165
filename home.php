@@ -14,7 +14,7 @@
 		<div class="navbar-header">
 		</div>
 		<a href="#" class="navbar-left"><img src="pics/logo.png" width="40px" hspace="20px" vspace="5px"></a>
-		<a class="navbar-brand" href="#">UP Office of Admissions</a>
+		<a class="navbar-brand" href="#">EducNation</a>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="home.php">Home</a></li>
 			<li><a href="profile.php">Profile</a></li>
@@ -31,7 +31,7 @@
 						<li><a href="home.php" class="active">Schools</a></li>
 						<li><a href="elementary.php">Elementary</a></li>
 						<li><a href="technical.php">Technical</a></li>
-						<li><a href="addrecord.php">Regions</a></li>
+						<li><a href="region.php">Regions</a></li>
 
 
 

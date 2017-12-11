@@ -14,7 +14,7 @@
 		<div class="navbar-header">
 		</div>
 		<a href="#" class="navbar-left"><img src="pics/logo.png" width="40px" hspace="20px" vspace="5px"></a>
-		<a class="navbar-brand" href="#">UP Office of Admissions</a>
+		<a class="navbar-brand" href="#">EducNation</a>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="home.php">Home</a></li>
 			<li><a href="profile.php">Profile</a></li>
@@ -38,21 +38,18 @@
 
 
 				<form METHOD="POST">
-				
+
+    				<div class="form-group">
+    					<label for="name">School Name</label>
+    					<input type="text" class="form-control" id="name" name="name">
+    				</div>
+    				<div class="form-group">
+    					<label for="location">Location</label>
+    					<input type="text" class="form-control" id="location" name="location">
+    				</div>
 
 
-
-				<div class="form-group">
-					<label for="name">School Name</label>
-					<input type="text" class="form-control" id="name" name="name">
-				</div>
-				<div class="form-group">
-					<label for="location">Location</label>
-					<input type="text" class="form-control" id="location" name="location">
-				</div>
-
-
-				<input type = "submit" class="btn btn-primary" name = "submit" value = "Submit">
+    				<input type = "submit" class="btn btn-primary" name = "submit" value = "Submit">
 				</form>
 
 
@@ -68,34 +65,33 @@
 
 $bool = NULL;
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-  
- 
-  $name = mysql_real_escape_string($_POST['name']);
-  $location = mysql_real_escape_string($_POST['location']);
-  
+$conn = new mysqli("localhost", "root", "", "cs165mp5");
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+  $name = $conn->real_escape_string($_POST['name']);
+  $location = $conn->real_escape_string($_POST['location']);
 
   $bool = true;
 
-  if ($location <= 0) {$bool = false;}
+  if ($location <= 0 or $location > 17) {$bool = false;}
 
-  mysql_connect("localhost", "root", "") or die(mysql_error()); //connect to server
-  mysql_select_db("cs165mp5") or die("Cannot connect to database"); //connect to database
-  $query = mysql_query("Select * from school");
+  $query = mysqli_query($conn, "Select * from school");
 
 }
 $school = rand ( 100000,  999999);
 
 if($bool){
-	$insert = mysql_query("INSERT INTO school (`school_id`,`name`,`num_of_faculty`,`num_of_students`) 
+	$insert = mysqli_query($conn, "INSERT INTO school (`school_id`,`name`,`num_of_faculty`,`num_of_students`)
 										VALUES ('$school','$name','0','0');");
-	$insert = mysql_query("INSERT INTO college_university (`school_id`,`enrollment_rates`,`graduation_rates`) 
-	  									VALUES ('$school','0','0');");
-	$insert = mysql_query("INSERT INTO located_in (`located_id`,`school_id`,`region_num`)
-	  									VALUES ('$school','$school','$location');");
-  Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
 
-  if (!$insert) echo mysql_error();
+	$insert = mysqli_query($conn, "INSERT INTO elementary_school
+	  									VALUES ('$school','0','0','0');");
+	$insert = mysqli_query($conn, "INSERT INTO located_in (`located_id`,`school_id`,`region_num`)
+	  									VALUES ('$school','$school','$location');");
+
+    Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
+
+  if (!$insert) echo mysqli_error();
 }
 ?>

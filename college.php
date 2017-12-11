@@ -17,7 +17,7 @@
 		<a class="navbar-brand" href="college.php">EducNation</a>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="college.php">Home</a></li>
-			
+
 			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>
@@ -76,27 +76,27 @@
 
 								<!--Table. Calls mysql to show the data-->
 								<?php
-									$servername = "localhost";  
+									$servername = "localhost";
 									$username = "root";
 									$password = "";
 									$dbname = "cs165mp5";
 
 									$conn = new mysqli($servername, $username, $password, $dbname);
-								
+
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
-									} 
+									}
 
-									
+
 									$sql = "SELECT *, school.name as namae  FROM school natural join college_university natural join located_in, region where region.region_num=located_in.region_num";
 									$result = $conn->query($sql);
 
 
 
-									if ($result->num_rows > 0) {	
+									if ($result->num_rows > 0) {
 
 
-										
+
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
@@ -108,7 +108,7 @@
 												echo '<td align="center">' .$row["graduation_rates"] . '</td>';
 												echo '<td align="center">' .$row["name"] . '</td>';
 												echo '<td align="center"><a href=courses.php?school_id='. $row["school_id"].'>View Courses</a></td>';
-											
+
 												echo '</tr>';
 
 
