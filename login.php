@@ -9,11 +9,11 @@
       session_start();
       error_reporting(0);
       if($_SESSION['user']){
-        header('location: dashboard.php');
+        header('location: home.php');
       }
       ?>
   </br>
-  
+
   <a href="register.php">Click here to Register.</a>
   <div class="imgcontainer">
     <img src="201614.svg" height="100" width="100" align ="center">
@@ -29,9 +29,9 @@
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
-        
+
     <button type="submit">Login</button>
-  
+
   </div>
   </div>
 </form>

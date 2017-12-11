@@ -24,7 +24,6 @@
 </nav>
 
 <!-- baba -->
-
 	<div class="container-fluid">
 		<div class="row" >
 			<div class="col-sm-2">
@@ -62,29 +61,29 @@
 
 								<!--Table. Calls mysql to show the data-->
 								<?php
-									$servername = "localhost";  
+									$servername = "localhost";
 									$username = "root";
 									$password = "";
 									$dbname = "cs165mp5";
 
 									$conn = new mysqli($servername, $username, $password, $dbname);
-								
+
 									if ($conn->connect_error) {
 											die("Connection failed: " . $conn->connect_error);
-									} 
+									}
 									$sql = "SELECT * FROM school natural join college_university";
 									$result = $conn->query($sql);
 
 
 
-									if ($result->num_rows > 0) {	
+									if ($result->num_rows > 0) {
 
 
-										
+
 										while($row = $result->fetch_assoc()) {
 
 												echo '<tr>';
-												
+
 												echo '<td align="center">' .$row["name"] . '</td>';
 												echo '<td align="center">' .$row["num_of_students"] . '</td>';
 												echo '<td align="center">' .$row["num_of_faculty"] . '</td>';

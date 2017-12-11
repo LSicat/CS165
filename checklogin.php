@@ -12,24 +12,17 @@
   $table_users = "";
   $table_password = "";
   $table_rights = "";
+
   if("$exists" > 0){
     while($row = mysql_fetch_assoc($query)){ //display all rows from query
       $table_users = $row['username']; //the first username row is passed on to $table_users and so on until the query is finished
       $table_password = $row['password'];
-      $table_userID = $row['userID'];
-      
-      $table_name = $row['name'];
-      $table_email = $row['email'];
-      $table_phone = $row['phone'];
+      $table_user_id = $row['user_id'];
     }
     if(($username == $table_users) && ($password == $table_password)){
       if($password == $table_password){
         $_SESSION['user'] = $username;
-        $_SESSION['userID'] = $table_userID;
-        $_SESSION['rights'] = $table_rights;
-        $_SESSION['name'] = $table_name;
-        $_SESSION['email'] = $table_email;
-        $_SESSION['phone'] = $table_phone;
+        $_SESSION['user_id'] = $table_user_id;
         header('location: home.php');
       }
     }
@@ -42,4 +35,5 @@
     Print '<script>alert("Incorrect username!");</script>'; // Prompts the user
     Print '<script>window.location.assign("login.php");</script>'; // redirects to login.php
   }
+
 ?>
