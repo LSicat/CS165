@@ -4,6 +4,8 @@
 	<title>Home</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="js/bootstrap.min.js"></script>
 </head>
@@ -183,7 +185,7 @@
 								</script>
 
 							</table>
-							<a href="indexcom.php"><h4> Post Comment </h4></a>
+							<a href="indexcom.php"><h2> Post Comment </h2></a>
 							<div id="comment_logs">
 								Loading comments...
 							<div>
